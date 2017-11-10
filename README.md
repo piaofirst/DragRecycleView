@@ -11,6 +11,6 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-	   compile 'com.github.piaofirst:DragRecycleView:v1.0.0'
+	   compile 'com.github.piaofirst:DragRecycleView:v1.0.1'
 	}
 ```
