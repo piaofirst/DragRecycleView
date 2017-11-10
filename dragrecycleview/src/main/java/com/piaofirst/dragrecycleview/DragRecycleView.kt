@@ -89,7 +89,7 @@ class DragRecycleView @JvmOverloads constructor(context: Context, attrs: Attribu
         mFootViews[0].visibility = View.GONE
     }
 
-    public fun addHeaderView(view: View) {
+    fun addHeaderView(view: View) {
         if (pullRefreshEnabled && mHeaderViews[0] !is RefreshHeader) {
             var refreshHeader = RefreshHeader(context)
             mHeaderViews.add(0, refreshHeader)
@@ -99,7 +99,7 @@ class DragRecycleView @JvmOverloads constructor(context: Context, attrs: Attribu
         mHeaderViews.add(view)
     }
 
-    public fun addFootView(view: View) {
+    fun addFootView(view: View) {
         mFootViews.clear()
         mFootViews.add(view)
         (view as? LoadingMoreFooter)?.setOnClickListener(OnClickListener {

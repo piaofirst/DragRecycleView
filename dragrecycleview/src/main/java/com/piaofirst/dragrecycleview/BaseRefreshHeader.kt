@@ -4,9 +4,9 @@ package com.piaofirst.dragrecycleview
  * Created by gjc on 2017/11/6.
  */
 interface BaseRefreshHeader {
-    abstract fun onMove(delta: Float, mLoadingListener: DragRecycleView.LoadingListener?)
-    abstract fun releaseAction(): Boolean
-    abstract fun refreshComplete()
+    fun onMove(delta: Float, mLoadingListener: DragRecycleView.LoadingListener?)
+    fun releaseAction(): Boolean
+    fun refreshComplete()
 
     companion object {
         const val STATE_NORMAL = 0

@@ -49,7 +49,6 @@ class RefreshHeader @JvmOverloads constructor(context: Context, attrs: Attribute
         var progressView = AVLoadingIndicatorView(context)
         progressView.setIndicatorColor(0xffB5B5B5.toInt())
         progressView.setIndicator(ProgressStyle.BallSpinFadeLoaderIndicator)
-//        progressView.setIndicatorId(ProgressStyle.BallSpinFadeLoader)
         header_progressbar.setView(progressView)
 
         mRotateUpAnim = RotateAnimation(0.0f, -180.0f,
@@ -64,23 +63,22 @@ class RefreshHeader @JvmOverloads constructor(context: Context, attrs: Attribute
         mMeasuredHeight = measuredHeight
     }
 
-    public fun setProgressStyle(style: String) {
+    fun setProgressStyle(style: String) {
         if (style == ProgressStyle.SysProgress) {
             header_progressbar.setView(ProgressBar(context, null, android.R.attr.progressBarStyle))
         } else {
             var progressView = AVLoadingIndicatorView(context)
             progressView.setIndicatorColor(0xffB5B5B5.toInt())
             progressView.setIndicator(style)
-//            progressView.setIndicatorId(style)
             header_progressbar.setView(progressView)
         }
     }
 
-    public fun setHeaderArrow(resId: Int) {
+    fun setHeaderArrow(resId: Int) {
         header_arrow.setImageResource(resId)
     }
 
-    public fun setState(state: Int) {
+    fun setState(state: Int) {
         if (state == mState) return
 
         when (state) {
@@ -128,7 +126,7 @@ class RefreshHeader @JvmOverloads constructor(context: Context, attrs: Attribute
         mState = state
     }
 
-    public fun getState(): Int {
+    fun getState(): Int {
         return mState
     }
 
@@ -173,7 +171,7 @@ class RefreshHeader @JvmOverloads constructor(context: Context, attrs: Attribute
         Handler().postDelayed({ reset() }, 500)
     }
 
-    public fun forceRefresh() {
+    fun forceRefresh() {
         setState(STATE_REFRESHING)
         setVisiableHeight(mMeasuredHeight)
     }

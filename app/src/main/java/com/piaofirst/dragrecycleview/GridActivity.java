@@ -16,12 +16,13 @@ public class GridActivity extends AppCompatActivity {
     private ArrayList<String> listData;
     private int refreshTime = 0;
     private int times = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recyclerview);
-        mRecyclerView = this.findViewById(R.id.recyclerview);
-        GridLayoutManager layoutManager = new GridLayoutManager(this,3);
+        mRecyclerView = findViewById(R.id.recyclerview);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
 
         mRecyclerView.setLayoutManager(layoutManager);
 
@@ -29,19 +30,19 @@ public class GridActivity extends AppCompatActivity {
         mRecyclerView.setLaodingMoreProgressStyle(ProgressStyle.BallRotateIndicator);
         mRecyclerView.setHeaderArrow(R.drawable.iconfont_downgrey);
 
-        View header =   LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup)findViewById(android.R.id.content),false);
+        View header = LayoutInflater.from(this).inflate(R.layout.recyclerview_header, (ViewGroup) findViewById(android.R.id.content), false);
         mRecyclerView.addHeaderView(header);
 
         mRecyclerView.setLoadingListener(new DragRecycleView.LoadingListener() {
             @Override
             public void onRefresh() {
-                refreshTime ++;
+                refreshTime++;
                 times = 0;
-                new Handler().postDelayed(new Runnable(){
+                new Handler().postDelayed(new Runnable() {
                     public void run() {
 
                         listData.clear();
-                        for(int i = 0; i < 20 ;i++){
+                        for (int i = 0; i < 20; i++) {
                             listData.add("item" + i + "after " + refreshTime + " times of refresh");
                         }
                         mAdapter.notifyDataSetChanged();
@@ -53,12 +54,12 @@ public class GridActivity extends AppCompatActivity {
 
             @Override
             public void onLoadMore() {
-                if(times < 2){
-                    new Handler().postDelayed(new Runnable(){
+                if (times < 2) {
+                    new Handler().postDelayed(new Runnable() {
                         public void run() {
                             mRecyclerView.loadMoreComplete();
-                            for(int i = 0; i < 20 ;i++){
-                                listData.add("item" + (i + listData.size()) );
+                            for (int i = 0; i < 20; i++) {
+                                listData.add("item" + (i + listData.size()));
                             }
                             mAdapter.notifyDataSetChanged();
                             mRecyclerView.refreshComplete();
@@ -73,7 +74,7 @@ public class GridActivity extends AppCompatActivity {
                         }
                     }, 1000);
                 }
-                times ++;
+                times++;
             }
 
             @Override
@@ -83,14 +84,13 @@ public class GridActivity extends AppCompatActivity {
         });
 
         listData = new ArrayList<>();
-        for(int i = 0; i < 20 ;i++){
-            listData.add("item" + (i + listData.size()) );
+        for (int i = 0; i < 20; i++) {
+            listData.add("item" + (i + listData.size()));
         }
         mAdapter = new MyAdapter(listData);
 
         mRecyclerView.setAdapter(mAdapter);
     }
-
 
 
 }
