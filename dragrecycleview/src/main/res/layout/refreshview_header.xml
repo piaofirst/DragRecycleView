@@ -53,7 +53,7 @@
             android:layout_toLeftOf="@id/header_text"
             android:src="@drawable/ic_pulltorefresh_arrow" />
 
-        <com.piaofirst.dragrecycleview.SimpleViewSwitcher
+        <com.piaofirst.dragrecycleView.SimpleViewSwitcher
             android:id="@+id/header_progressbar"
             android:layout_width="30dip"
             android:layout_height="30dip"

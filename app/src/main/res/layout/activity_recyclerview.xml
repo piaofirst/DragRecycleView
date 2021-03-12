@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     >
 
-    <com.piaofirst.dragrecycleview.DragRecycleView
+    <com.piaofirst.dragrecycleView.DragRecycleView
         android:id="@+id/recyclerview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />

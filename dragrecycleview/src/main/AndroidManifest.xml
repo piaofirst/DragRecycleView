@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.piaofirst.dragrecycleview" >
+    package="com.piaofirst.dragrecycleView" >
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
